@@ -29,6 +29,18 @@ export class DemoForm {
         this.phoneValidator
       ])]
     });
+
+    this.myForm.controls['firstName'].valueChanges.subscribe(
+      (value: string) => {
+        console.log('name value changed: ', value);
+      }
+    );
+
+    this.myForm.valueChanges.subscribe(
+      (value: string) => {
+        console.log('form value changed: ', value);
+      }
+    );
   }
 
   onSubmit(model) {
