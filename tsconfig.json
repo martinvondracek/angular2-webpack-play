@@ -18,6 +18,7 @@
     "./src/app/home/home.ts",
     "./src/app/home/providers/title.spec.ts",
     "./src/app/home/providers/title.ts",
+    "./src/app/services/customer.service.ts",
     "./src/main.ts",
     "./src/vendor.ts",
     "./test/injector.spec.ts",
