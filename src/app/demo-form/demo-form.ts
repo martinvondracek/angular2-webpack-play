@@ -1,6 +1,6 @@
 import { Component } from 'angular2/core';
 import {FORM_DIRECTIVES, FormBuilder, ControlGroup, Validators,
-  AbstractControl} from 'angular2/common';
+  AbstractControl, Control} from 'angular2/common';
 
 @Component({
   selector: 'demo-form',
@@ -13,16 +13,26 @@ export class DemoForm {
   myForm: ControlGroup;
   firstName: AbstractControl;
 
+  phoneValidator(control: Control) {
+    if (!control.value.match(/^\+421/)) {
+      return {invalidPhone: true};
+    }
+  }
+
   constructor(fb: FormBuilder) {
     this.myForm = fb.group({
-      firstName: ['', Validators.required],
-      lastName: ['Bulo'],
-      email: ['miro@bulo.com'],
-      phone: ['123456798']
+      firstName: ['Miro', Validators.required],
+      lastName: ['Bulo', Validators.required],
+      email: ['miro@bulo.com', Validators.required],
+      phone: ['+421123456798', Validators.compose([
+        Validators.required,
+        this.phoneValidator
+      ])]
     });
   }
 
   onSubmit(model) {
     console.log('submitted: ' + JSON.stringify(model));
   }
+
 }
