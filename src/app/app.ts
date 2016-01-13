@@ -6,6 +6,7 @@ import {RouteConfig, Router, ROUTER_DIRECTIVES} from 'angular2/router';
 import {FORM_PROVIDERS} from 'angular2/common';
 
 import {Home} from './home/home';
+import {DemoForm} from './demo-form/demo-form';
 
 /*
  * App Component
@@ -23,7 +24,10 @@ import {Home} from './home/home';
         <h1>Hello {{ name }}</h1>
         <a [routerLink]=" ['Index'] ">Index</a>
         <a [routerLink]=" ['Home'] ">Home</a>
+        <a [routerLink]=" ['DemoForm'] ">Demo form</a>
       </nav>
+      <hr>
+      <br>
     </header>
 
     <main>
@@ -31,6 +35,7 @@ import {Home} from './home/home';
     </main>
 
     <footer>
+      <br><br>
       WebPack Angular 2 Starter by <a [href]="url">@AngularClass</a>
     </footer>
   `
@@ -38,7 +43,8 @@ import {Home} from './home/home';
 @RouteConfig([
   { path: '/', component: Home, name: 'Index' },
   { path: '/home', component: Home, name: 'Home' },
-  { path: '/**', redirectTo: ['Index'] }
+  { path: '/**', redirectTo: ['Index'] },
+  { path: '/form', component: DemoForm, name: 'DemoForm'}
 ])
 export class App {
   name = 'Angular 2 Webpack Starter';
