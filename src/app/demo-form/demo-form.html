@@ -1,28 +1,28 @@
 <div class="container customer-form">
     <h1>New customer</h1>
-    <form novalidate (ngSubmit)="onSubmit(myForm.value)" #myForm="ngForm">
+    <form novalidate [ngFormModel]="myForm" (ngSubmit)="onSubmit(myForm.value)">
       <div class="form-group">
         <label for="firstName">First name</label>
-        <input type="text" class="form-control" required
-          placeholder="First name" ngControl="firstName">
+        <input type="text" class="form-control"
+          placeholder="First name" [ngFormControl]="myForm.controls['firstName']">
       </div>
 
       <div class="form-group">
         <label for="lastName">Last name</label>
-        <input type="text" class="form-control" required
-          placeholder="Last name" ngControl="lastName">
+        <input type="text" class="form-control"
+          placeholder="Last name" [ngFormControl]="myForm.controls['lastName']">
       </div>
 
       <div class="form-group">
         <label for="email">Email</label>
-        <input type="email" class="form-control" required
-          placeholder="Email" ngControl="email">
+        <input type="email" class="form-control"
+          placeholder="Email" [ngFormControl]="myForm.controls['email']">
       </div>
 
       <div class="form-group">
         <label for="phone">Phone</label>
-        <input type="phone" class="form-control" required
-          placeholder="Phone" ngControl="phone">
+        <input type="phone" class="form-control"
+          placeholder="Phone" [ngFormControl]="myForm.controls['phone']">
       </div>
 
       <button type="submit" class="btn btn-default"

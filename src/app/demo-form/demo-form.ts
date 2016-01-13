@@ -1,5 +1,5 @@
 import { Component } from 'angular2/core';
-import {FORM_DIRECTIVES, FormBuilder, ControlGroup} from "angular2/common";
+import {FORM_DIRECTIVES, FormBuilder, ControlGroup} from 'angular2/common';
 
 @Component({
   selector: 'demo-form',
@@ -9,6 +9,16 @@ import {FORM_DIRECTIVES, FormBuilder, ControlGroup} from "angular2/common";
 })
 
 export class DemoForm {
+  myForm: ControlGroup;
+
+  constructor(fb: FormBuilder) {
+    this.myForm = fb.group({
+      firstName: ['Miro'],
+      lastName: ['Bulo'],
+      email: ['miro@bulo.com'],
+      phone: ['123456798']
+    });
+  }
 
   onSubmit(model) {
     console.log('submitted: ' + JSON.stringify(model));
