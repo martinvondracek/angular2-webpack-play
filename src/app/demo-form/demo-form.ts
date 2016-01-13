@@ -20,8 +20,6 @@ export class DemoForm {
       email: ['miro@bulo.com'],
       phone: ['123456798']
     });
-
-    this.firstName = this.myForm.controls['firstName'];
   }
 
   onSubmit(model) {

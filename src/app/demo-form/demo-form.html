@@ -3,12 +3,12 @@
     <form novalidate [ngFormModel]="myForm" (ngSubmit)="onSubmit(myForm.value)">
       <div class="form-group">
         <label for="firstName">First name</label>
-        <input type="text" class="form-control"
+        <input type="text" class="form-control" #firstName="ngForm"
           placeholder="First name" [ngFormControl]="myForm.controls['firstName']">
-        <div *ngIf="!firstName.valid && firstName.touched" class="alert alert-danger">
+        <div *ngIf="!firstName.control.valid && firstName.control.touched" class="alert alert-danger">
           Name is invalid
         </div>
-        <div *ngIf="firstName.hasError('required') && firstName.touched" class="alert alert-danger">
+        <div *ngIf="firstName.control.hasError('required') && firstName.control.touched" class="alert alert-danger">
           Name is required
         </div>
       </div>
