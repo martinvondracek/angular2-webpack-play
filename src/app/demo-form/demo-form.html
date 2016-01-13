@@ -5,6 +5,12 @@
         <label for="firstName">First name</label>
         <input type="text" class="form-control"
           placeholder="First name" [ngFormControl]="myForm.controls['firstName']">
+        <div *ngIf="!firstName.valid && firstName.touched" class="alert alert-danger">
+          Name is invalid
+        </div>
+        <div *ngIf="firstName.hasError('required') && firstName.touched" class="alert alert-danger">
+          Name is required
+        </div>
       </div>
 
       <div class="form-group">
@@ -24,6 +30,8 @@
         <input type="phone" class="form-control"
           placeholder="Phone" [ngFormControl]="myForm.controls['phone']">
       </div>
+
+      <div *ngIf="!myForm.valid" class="alert alert-danger">Form is invalid</div>
 
       <button type="submit" class="btn btn-default"
         [disabled]="!myForm.valid">Create</button>
